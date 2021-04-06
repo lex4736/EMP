@@ -33,7 +33,7 @@ npm test
  
 ----
 ## 🏋️ <a id="demo"></a> Demo of Application
-![Demo](https://github.com/lex4736/workouttrack/blob/master/public/screenshot.PNG?raw=true)
+![livedemo](https://user-images.githubusercontent.com/71117049/113679850-143fd600-9675-11eb-8a6f-e9d779141265.gif)
   ----
  ## 🏋️ <a id="email"></a> Contact me for Questions 
  **lex4736@gmail.com** 

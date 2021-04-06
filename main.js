@@ -14,40 +14,39 @@ const connection = mysql.createConnection({
 });
 
 connection.connect(function(err) {
-    if (err) throw err;
-    console.log("connected as id " + connection.threadId + "\n");
-    exports.start();
-  });
-  
-  exports.start = () => {
-      inq.prompt([
-          {
-              type: "list",
-              message: "Select a task",
-              name: "choice",
-              choices: [
-                  "View Employees",
-                  "Add Employee",
-                  "Update Employee",
-                  "leave"                
-              ]
-          }
-      ])
-      .then(function(answer) {
-        if(answer.choice === "View All Employees") {
-          view.viewAllEmployees();
+  if (err) throw err;
+  console.log("connected as id " + connection.threadId + "\n");
+  exports.start();
+});
+
+exports.start = () => {
+    inq.prompt([
+        {
+            type: "list",
+            name: "choice",
+            message: "Select a task",
+            choices: [
+                "View All Employees",
+                "Add Employee",
+                "Update Employee Role",
+                "EXIT"                
+            ]
         }
-        else if(answer.choice === "Add Employee") {
-          add.addEmployee();
-        }      
-        else if(answer.choice === "Update Employee Role") {
-          update.updateRole();
-        }
-        else if(answer.choice === "EXIT") {
-          connection.end();
-          return
-        }
-      });
-      
-  };
- 
+    ])
+    .then(function(answer) {
+      if(answer.choice === "View All Employees") {
+        view.viewEmployees();
+      }
+      else if(answer.choice === "Add Employee") {
+        add.newEmployee();
+      }      
+      else if(answer.choice === "Update Employee Role") {
+        update.updateRole();
+      }
+      else if(answer.choice === "EXIT") {
+        connection.end();
+        return
+      }
+    });
+    
+};
